@@ -3,13 +3,13 @@ import styled from "styled-components";
 import IProfissional from "../../../types/IProfissional";
 
 const ContainerEstilizado = styled.div`
-    flex: 0.4;
-    max-width: 100%;
+    flex: 1;
     background-color: #ffffff;
     padding: 1em;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     color: var(--cinza);
+    min-width: 40%;
     margin: 1em 2em 1em;
 `;
 
