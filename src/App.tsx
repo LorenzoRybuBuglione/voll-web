@@ -28,13 +28,11 @@ function App() {
                 <Botao>Cadastrar especialista</Botao>
                 <Titulo imagem="consulta">Consultas do Dia</Titulo>
                 <Tabela consultas={consultas} />
-                <Botao>Ver mais</Botao>
                 <Titulo imagem="grafico">Consultas mensais por especialista</Titulo>
                 <Grafico consultas={consultas} profissionais={profissionais}/>
                 <Titulo imagem="avaliacao">Avaliação de especialistas</Titulo>
                 <Subtitulo>Dezembro/22</Subtitulo>
                 <Avaliacao profissionais={profissionais}/>
-                <Botao>Ver mais</Botao>
             </Container>
             <Rodape />
         </>

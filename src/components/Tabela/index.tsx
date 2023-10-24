@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { tableCellClasses } from "@mui/material/TableCell";
 import IConsulta from "../../types/IConsulta";
+import Botao from "../Botao";
 
 const CelulaEstilizada = styled(TableCell)(() => ({
     [`&.${tableCellClasses.head}`]: {
@@ -80,6 +81,7 @@ function Tabela({ consultas }: { consultas: IConsulta[] | null }) {
                     </TableBody>
                 </Table>
             </TableContainer>
+            <Botao>Ver mais</Botao>
         </>
     );
 }
