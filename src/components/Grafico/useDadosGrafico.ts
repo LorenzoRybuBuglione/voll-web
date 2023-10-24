@@ -13,7 +13,7 @@ export interface IDados {
 
 const useDadosGrafico = ({ profissionais, consultas }: Props) => {
     let dados: Array<IDados> = [];
-    if (profissionais && consultas) {
+    if (profissionais && profissionais.length && consultas) {
         dados = profissionais.map((profissional) => ({
             nome: profissional.nome,
             consultas: consultas.filter((consulta) =>
