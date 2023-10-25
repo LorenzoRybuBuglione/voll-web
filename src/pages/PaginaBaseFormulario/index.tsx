@@ -19,7 +19,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px;
 `;
 
 export default function PaginaBaseFormulario() {

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Cadastro from "./pages/Cadastro";
 import Dashboard from "./pages/Dashboard";
 import Inicial from "./pages/Inicial";
 import Login from "./pages/Login";
@@ -15,6 +16,7 @@ function AppRoutes() {
                 </Route>
                 <Route path="/" element={<PaginaBaseFormulario />}>
                     <Route path="/Login" element={<Login />} />
+                    <Route path="/Cadastro" element={<Cadastro/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

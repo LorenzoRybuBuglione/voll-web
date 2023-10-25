@@ -5,6 +5,10 @@ import Botao from "../../components/Botao";
 import CampoDigitacao from "../../components/CampoDigitacao";
 import Logo from "./Logo.png";
 
+const Imagem = styled.img`
+    padding: 2em 0;
+`;
+
 const Titulo = styled.h2`
     margin-top: 80px;
     color: var(--cinza);
@@ -43,7 +47,7 @@ export default function Login() {
 
     return (
         <Formulario>
-            <img src={Logo} alt="Logo da Voll" />
+            <Imagem src={Logo} alt="Logo da Voll" />
             <Titulo>Faça login em sua conta</Titulo>
             <CampoDigitacao
                 valor={email}
