@@ -41,6 +41,10 @@ const Formulario = styled.form`
     align-items: center;
 `;
 
+const BotaoCustomizado = styled(Botao)`
+    width: 50%;
+`;
+
 export default function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -63,7 +67,7 @@ export default function Login() {
                 onChange={setSenha}
                 label="Senha"
             />
-            <Botao type="submit">Entrar</Botao>
+            <BotaoCustomizado type="submit">Entrar</BotaoCustomizado>
             <Paragrafo>Esqueceu sua senha?</Paragrafo>
             <ParagrafoCadastro>
                 Ainda não tem conta?{" "}
