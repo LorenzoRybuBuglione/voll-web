@@ -1,9 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Botao from "../../components/Botao";
 import CampoDigitacao from "../../components/CampoDigitacao";
 import Logo from "./Logo.png";
+import usePost from "../../usePost";
 
 const Imagem = styled.img`
     padding: 2em 0;
@@ -45,36 +46,60 @@ const BotaoCustomizado = styled(Botao)`
     width: 50%;
 `;
 
+interface ILogin {
+    email: string;
+    senha: string;
+}
+
 export default function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
+    const { cadastrarDados, erro, sucesso } = usePost();
+
+    const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const usuario: ILogin = {
+            email,
+            senha,
+        };
+
+        try {
+            await cadastrarDados({ url: "auth/login", dados: usuario });
+        } catch (erro) {
+            erro && alert("Não foi possivel fazer login");
+        }
+    };
+
     return (
-        <Formulario>
+        <>
             <Imagem src={Logo} alt="Logo da Voll" />
             <Titulo>Faça login em sua conta</Titulo>
-            <CampoDigitacao
-                valor={email}
-                tipo="email"
-                placeholder="Insira seu endereço de e-mail"
-                onChange={setEmail}
-                label="E-mail"
-            />
-            <CampoDigitacao
-                valor={senha}
-                tipo="password"
-                placeholder="Insira sua senha"
-                onChange={setSenha}
-                label="Senha"
-            />
-            <BotaoCustomizado type="submit">Entrar</BotaoCustomizado>
-            <Paragrafo>Esqueceu sua senha?</Paragrafo>
-            <ParagrafoCadastro>
-                Ainda não tem conta?{" "}
-                <LinkCustomizado to="/cadastro">
-                    Faça seu cadastro!
-                </LinkCustomizado>
-            </ParagrafoCadastro>
-        </Formulario>
+            <Formulario onSubmit={handleLogin}>
+                <CampoDigitacao
+                    valor={email}
+                    tipo="email"
+                    placeholder="Insira seu endereço de e-mail"
+                    onChange={setEmail}
+                    label="E-mail"
+                />
+                <CampoDigitacao
+                    valor={senha}
+                    tipo="password"
+                    placeholder="Insira sua senha"
+                    onChange={setSenha}
+                    label="Senha"
+                />
+                <BotaoCustomizado type="submit">Entrar</BotaoCustomizado>
+                <Paragrafo>Esqueceu sua senha?</Paragrafo>
+                <ParagrafoCadastro>
+                    Ainda não tem conta?{" "}
+                    <LinkCustomizado to="/cadastro">
+                        Faça seu cadastro!
+                    </LinkCustomizado>
+                </ParagrafoCadastro>
+            </Formulario>
+        </>
     );
 }
